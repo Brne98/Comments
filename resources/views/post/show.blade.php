@@ -36,18 +36,17 @@
             <button type="submit">Reply</button>
         </form>
 
+        @if(isset($comments[$comment->id]))
         <div style="margin-left: 30px;border: 1px solid black; padding: 5px;max-width: 350px">
             <h4 style=" margin-bottom: 50px">Replies:</h4>
-            @if(isset($comments[$comment->id]))
             @foreach($comments[$comment->id] as $child)
                     <p style="margin-left: 30px">
                         <strong>{{$child->owner->name}}: </strong>
                         {{ $child->body }}
                     </p>
             @endforeach
-            @endif
         </div>
-
+        @endif
     </article>
     <hr>
 @endforeach
