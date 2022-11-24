@@ -16,20 +16,20 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        if($post->comments->first() !== null){
-            $comments = $post->comments->groupBy('parent_id');
-            $comments['root'] = $comments[''];
-            unset($comments['']);
-
+//        if($post->comments->first() !== null){
+//            $comments = $post->comments->groupBy('parent_id');
+//            $comments['root'] = $comments[''];
+//            unset($comments['']);
+//
+//            return view('post.show',[
+//                'post' => $post,
+//                'comments' => $comments,
+//            ]);
+//        } else {
             return view('post.show',[
                 'post' => $post,
-                'comments' => $comments,
             ]);
-        } else {
-            return view('post.show',[
-                'post' => $post,
-            ]);
-        }
+//        }
 
     }
 
